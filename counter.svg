@@ -18,7 +18,7 @@
           if (currentNumber < targetNumber) {
             currentNumber += increment; 
             if (currentNumber > targetNumber) currentNumber = targetNumber;
-            numberTextElement.textContent = Math.floor(currentNumber); 
+            numberTextElement.textContent = Math.floor(currentNumber) + " 개"; 
             setTimeout(animateNumber, stepTime); 
           }
         }
