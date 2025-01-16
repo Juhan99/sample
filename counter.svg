@@ -5,7 +5,7 @@
     fetch('https://juhan99.github.io/sample/sample.json')
       .then(response => response.json())
       .then(data => {
-        const targetNumber = data.number;
+        const targetNumber = data.product1; // JSON의 product1 값 가져오기
         const numberTextElement = document.getElementById('numberText');
 
         let currentNumber = 0; 
