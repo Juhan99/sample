@@ -1,30 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto; background-color: skyblue;">
   <text id="numberText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="48" fill="white">0</text>
-
   <script type="application/ecmascript">
-    // JSON 파일 로드
     fetch('https://juhan99.github.io/sample/sample.json')
       .then(response => response.json())
       .then(data => {
-        const targetNumber = data.number; // JSON에서 숫자 가져오기
+        const targetNumber = data.number;
         const numberTextElement = document.getElementById('numberText');
 
-        let currentNumber = 0; // 초기값
-        const duration = 2000; // 애니메이션 지속 시간 (ms)
-        const stepTime = 30; // 단계 간격 (ms)
-        const steps = duration / stepTime; // 단계 수
-        const increment = targetNumber / steps; // 단계별 증가값
+        let currentNumber = 0; 
+        const duration = 2000; 
+        const stepTime = 30; 
+        const steps = duration / stepTime; 
+        const increment = targetNumber / steps; 
 
         function animateNumber() {
           if (currentNumber < targetNumber) {
-            currentNumber += increment; // 증가
-            if (currentNumber > targetNumber) currentNumber = targetNumber; // 초과 방지
-            numberTextElement.textContent = Math.floor(currentNumber); // 소수점 제거
-            setTimeout(animateNumber, stepTime); // 다음 단계 호출
+            currentNumber += increment; 
+            if (currentNumber > targetNumber) currentNumber = targetNumber;
+            numberTextElement.textContent = Math.floor(currentNumber); 
+            setTimeout(animateNumber, stepTime); 
           }
         }
 
-        animateNumber(); // 애니메이션 시작
+        animateNumber();
       })
       .catch(error => {
         console.error('Error loading JSON:', error);
