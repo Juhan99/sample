@@ -1,22 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto;">
-  <!-- Google Fonts 로드 -->
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
-    </style>
-  </defs>
-
-  <!-- 텍스트 요소 -->
-  <text id="numberText" x="50%" y="50%" 
-    text-anchor="middle" 
-    dominant-baseline="middle" 
-    font-family="'DM Serif Text', serif" 
-    font-size="1.5em" 
-    fill="#FFFFFF">
-    0
-  </text>
-
-  <!-- 스크립트 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto; ">
+  <text id="numberText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="32" fill="#FFFFFF">0</text>
   <script type="application/ecmascript">
     <![CDATA[
     fetch('https://juhan99.github.io/sample/sample.json')
