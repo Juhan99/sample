@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto;">
+  <text id="numberText" x="50%" y="40%" text-anchor="middle" dominant-baseline="middle" font-weight="bold" font-family="Arial" font-size="280%" fill="#FFFFFF">
+  </text>
+
+  <script type="application/ecmascript">
+    <![CDATA[
+    fetch('https://juhan99.github.io/sample/sample.json') // JSON 파일 경로
+      .then(response => response.json())
+      .then(data => {
+        const targetText = data.product2; // JSON에서 문자열 가져오기 (예: "Only\n97\nStock")
+        const numberTextElement = document.getElementById('numberText');
+        
+        // 문자열을 줄바꿈 기준으로 분리하여 tspan에 추가
+        const lines = targetText.split("\n");
+        numberTextElement.innerHTML = ''; // 기존 내용 비우기
+
+        let yPosition = 0; // 첫 번째 줄의 y 위치
+        lines.forEach((line, index) => {
+          const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+          tspan.setAttribute('x', '50%');
+          tspan.setAttribute('dy', index === 0 ? '0' : '1.2em'); // 첫 번째 줄은 dy를 0으로 설정하고, 이후 줄은 1.2em만큼 간격을 둠
+          tspan.setAttribute('text-anchor', 'middle');
+          tspan.setAttribute('fill', '#FFFFFF');
+          tspan.textContent = line; // 텍스트 내용 설정
+          numberTextElement.appendChild(tspan); // tspan 요소를 numberText에 추가
+        });
+      })
+      .catch(error => {
+        console.error('Error loading JSON:', error);
+      });
+    ]]>
+  </script>
+</svg>
