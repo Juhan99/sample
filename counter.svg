@@ -1,32 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto; ">
-  <text id="numberText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold"  font-family="Arial" font-size="280%" fill="#FFFFFF">0</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto;">
+  <text 
+    id="numberText" 
+    x="50%" 
+    y="50%" 
+    text-anchor="middle" 
+    dominant-baseline="middle" 
+    font-weight="bold"  
+    font-family="Arial" 
+    font-size="280%" 
+    fill="#FFFFFF">
+    Loading...
+  </text>
   <script type="application/ecmascript">
     <![CDATA[
-    fetch('https://juhan99.github.io/sample/sample.json')
+    fetch('https://juhan99.github.io/sample/sample.json') // JSON 파일 경로
       .then(response => response.json())
       .then(data => {
-        const targetNumber = data.product1; // JSON의 product1 값 가져오기
+        const targetText = data.product1; // JSON에서 문자열 가져오기 (\n 포함)
         const numberTextElement = document.getElementById('numberText');
-
-        let currentNumber = 0; 
-        const duration = 2000; 
-        const stepTime = 30; 
-        const steps = duration / stepTime; 
-        const increment = targetNumber / steps; 
-
-        function animateNumber() {
-          if (currentNumber < targetNumber) {
-            currentNumber += increment; 
-            if (currentNumber > targetNumber) currentNumber = targetNumber;
-            numberTextElement.textContent = Math.floor(currentNumber) + " Stock"; 
-            setTimeout(animateNumber, stepTime); 
-          }
-        }
-
-        animateNumber();
+        
+        // 줄바꿈 포함된 텍스트를 <text>에 삽입
+        numberTextElement.textContent = targetText;
       })
       .catch(error => {
         console.error('Error loading JSON:', error);
+        const numberTextElement = document.getElementById('numberText');
+        numberTextElement.textContent = "Error loading data";
       });
     ]]>
   </script>
