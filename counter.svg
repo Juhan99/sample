@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" style="height:auto; ">
-  <text id="numberText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial" font-size="32" fill="#FFFFFF">0</text>
+  <text id="numberText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-weight="bold"  font-family="Arial" font-size="280%" fill="#FFFFFF">0</text>
   <script type="application/ecmascript">
     <![CDATA[
     fetch('https://juhan99.github.io/sample/sample.json')
