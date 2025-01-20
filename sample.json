@@ -1,10 +1,10 @@
 {
   "m0100": {
-    "stock": "Only\n97\nStock",
+    "stock": "97",
     "restock": ""
   },
   "A0120": {
     "stock": "SoldOut",
-    "restock": "재발매 신청자\n340명"
+    "restock": "340"
   }
 }
